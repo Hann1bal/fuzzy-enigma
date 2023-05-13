@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext, useEffect, useState} from 'react';
+import {LCRContainer} from "./Components/LCRContainer";
+import {Context} from "./index";
+import {LoginPage} from "./Components/LoginPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const {store} = useContext(Context)
+    const [auth, setAuth] = useState<boolean>(store.isAuth);
+    useEffect(() => {
+        async function ping() {
+            if (await store.check_auth()) {
+                setAuth(true);
+                console.log("ping")
+            }
+        }
+        ping();
+    }, [store,auth])
+
+    if (store.isAuth) {
+        return (<><LCRContainer></LCRContainer></>);
+    } else {
+        return <LoginPage></LoginPage>
+    }
 }
 
 export default App;

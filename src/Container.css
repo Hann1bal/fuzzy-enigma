@@ -1,0 +1,54 @@
+.Container {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 100vh;
+    max-height: 100vh;
+    scrollbar-width: unset;
+    overflow-x: auto;
+    width: content-box;
+    position: relative;
+}
+.Form{
+    flex-direction: column;
+    display: flex;
+}
+.Lable-row{
+    flex-direction: column;
+    display: flex;
+}
+.Input-row{
+    flex-direction: row;
+    display: flex;
+    align-self: center;
+    min-width: 50vh;
+    padding: 1.5em;
+    min-height: 5vh;
+    resize: none;
+}
+.Input-submit{
+    min-width: 15vh;
+    max-width: 25vh;
+    border: none;
+    margin: 1em;
+    align-self: center; 
+}
+.Container-left {
+    flex-grow: 1;
+    background-color: lightgray;
+    float: left;
+}
+.Container-right {
+    flex-grow: 1;
+    box-shadow: black;
+    background-color: lightgray;
+    flex-direction: row;
+    float: right;
+}
+.Container-mid {
+    flex-grow: 2;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
